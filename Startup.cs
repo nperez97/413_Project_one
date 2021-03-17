@@ -26,6 +26,7 @@ namespace _413_Project_one
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddScoped<IGroupRepository, EFGroupRepository>();
 
             services.AddDbContext<BookingDBContext>(options =>
             {
