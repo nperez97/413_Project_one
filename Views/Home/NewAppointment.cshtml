@@ -32,8 +32,8 @@
                 <input class="form-control" asp-for="GroupContactPhoneNumber" />
                 <span asp-validation-for="GroupContactPhoneNumber" class="text-danger"></span>
             </div>
-            <input type="submit" value="Submit" id="btnsubmit" onclick="resetForm()">
-            <input asp-action="ViewAppointments" type="submit" value="See All Movies" />
+            <input asp-action="NewAppointment" type="submit" value="Submit" id="btnsubmit" onclick="resetForm()">
+            <input asp-action="ViewAppointments" type="submit" value="Show All Appointments" />
         </form>
     </div>
     

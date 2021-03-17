@@ -31,15 +31,15 @@ namespace _413_Project_one.Controllers
         public IActionResult NewAppointment(Group newGroup)
         {
             Repository.AddResponse(newGroup);
-            if (ModelState.IsValid)
+            /*if (ModelState.IsValid)
             {
-                Response.Redirect("NewAppointment");
-            }
-            return View("Group", newGroup);
+                Response.Redirect("Index");
+            }*/
+            return View("ViewAppointments", newGroup);
         }
         public IActionResult ViewAppointments()
         {
-            return View(Repository.Responses); //change from title to whatever our name is
+            return View(Repository.Responses); 
         }
         public IActionResult Privacy()
         {
