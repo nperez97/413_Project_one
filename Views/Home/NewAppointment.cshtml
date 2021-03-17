@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "New Appointment";
+}
+
+@model _413_Project_one.Models.AppointmentModel
+
+<h1>@ViewData["Title"]</h1>
+
+
+<body>
+
+    <!--Form for entering in a new appointment-->
+    <div class="container">
+        <form class="mt-5 ml-5 pt-5 pl-5" asp-action="NewAppointment" method="post" id="newAppointmentForm">
+            <div class="form-group">
+                <label asp-for="GroupName">Name of Group</label>
+                <input class="form-control" asp-for="GroupName" />
+                <span asp-validation-for="GroupName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GroupSize">Size of Group</label>
+                <input class="form-control" asp-for="GroupSize" />
+                <span asp-validation-for="GroupSize" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GroupContactEmailAddress">Email Address</label>
+                <input class="form-control" asp-for="GroupContactEmailAddress" />
+                <span asp-validation-for="GroupContactEmailAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GroupContactPhoneNumber">Phone Number</label>
+                <input class="form-control" asp-for="GroupContactPhoneNumber" />
+                <span asp-validation-for="GroupContactPhoneNumber" class="text-danger"></span>
+            </div>
+            <input type="submit" value="Submit" id="btnsubmit" onclick="resetForm()">
+            <input asp-action="ViewAppointments" type="submit" value="See All Movies" />
+        </form>
+    </div>
+    
+</body>

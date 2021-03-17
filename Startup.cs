@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using _413_Project_one.Models;
 
 namespace _413_Project_one
 {
@@ -52,6 +53,8 @@ namespace _413_Project_one
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            SeedData.EnsurePopulated(app);
         }
     }
 }
