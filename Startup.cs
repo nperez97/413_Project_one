@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using _413_Project_one.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace _413_Project_one
 {
@@ -25,6 +26,13 @@ namespace _413_Project_one
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddDbContext<BookingDBContext>(options =>
+            {
+                //go into configuration and set connectionstring key to watercharityconnection, the name of the connection. Will have info for how we will connect
+                //options.UseSqlServer(Configuration["ConnectionString:WaterCharityConnection"]);
+                options.UseSqlite(Configuration.GetConnectionString("BookingConnection")); //use this line and not what hilton has
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -44,7 +52,7 @@ namespace _413_Project_one
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

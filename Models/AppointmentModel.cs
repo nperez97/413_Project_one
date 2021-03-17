@@ -16,7 +16,7 @@ namespace _413_Project_one.Models
         public DateTime AppointmentStartTime { get; set; }
 
         [Required]
-        public DateTime AppointmentStartTime { get; set; }
+        public bool Booked { get; set; } = false;
 
     }
 }

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using 413_Project_one.Models;
 
 namespace _413_Project_one.Controllers
 {
@@ -15,9 +14,9 @@ namespace _413_Project_one.Controllers
         private readonly ILogger<HomeController> _logger;
 
         //repository
-        private ISignUpRepository _repository;
+        private IGroupRepository _repository;
 
-        public HomeController(ILogger<HomeController> logger, ISignUpRepository repository)
+        public HomeController(ILogger<HomeController> logger, IGroupRepository repository)
         {
             _logger = logger;
             _repository = repository;
@@ -35,7 +34,7 @@ namespace _413_Project_one.Controllers
         }
 
         [HttpPost]
-        public IActionResult NewAppointment(NewAppointment newAppointment)
+        public IActionResult NewAppointment(AppointmentModel newAppointment)
         {
             Repository.AddResponse(newAppointment);
 
@@ -49,7 +48,7 @@ namespace _413_Project_one.Controllers
         
         public ViewAppointments ListAppointments()
         {
-            return View(Repository.Responses.Where(r => r.Title)); //change from title to whatever our name is
+            return View(Repository.Responses); //change from title to whatever our name is
         }
 
         public IActionResult Privacy()
