@@ -1,42 +1,41 @@
-﻿@{
-    ViewData["Title"] = "View Appointments";
+﻿@{ ViewData["Title"] = "View Appointments";
 }
 
-
-@model IEnumerable<_413_Project_one.Models.Group>
-
-<body>
-    <div class="container-fluid">
-        <h1>@ViewData["Title"]</h1>
-        <h2>Here is the list of Appointments</h2>
-        <table class="table table-striped">
-            <thead class="thead-dark">
-                <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Size</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Phone</th>
-                    <th scope="col">Appt ID</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (_413_Project_one.Models.Group r in Model)
-                {
+<h1 class="text-center">Scheduled Tours</h1>
+<div class="cards">
+    <div class="card">
+        <div class="card-body">
+            <table class="table table-hover" style="width: 50vw; margin-bottom: 0;">
+                <thead>
                     <tr>
-                        <td>@r.GroupID</td>
-                        <td>@r.GroupName</td>
-                        <td>@r.GroupSize</td>
-                        <td>@r.GroupContactEmailAddress</td>
-                        <td>@r.GroupContactPhoneNumber</td>
-                        <td>@r.GroupAppointmentID</td>
-
+                        <th class="text-center">Group Name</th>
+                        <th class="text-center">Group Size</th>
+                        <th class="text-center">Appointment Date</th>
                     </tr>
-                }
-            </tbody>
-        </table>
-        <br />
-        <h3><a asp-controller="home" asp-action="NewAppointment">Click here</a> to add another Appointment</h3>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="text-center">Layton 5th ward</td>
+                        <td class="text-center">30</td>
+                        <td class="text-center">February 31, 2021: 5PM</td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">Layton 3rd ward</td>
+                        <td class="text-center">17</td>
+                        <td class="text-center">February 31, 2021: 6PM</td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">Layton 3rd ward</td>
+                        <td class="text-center">17</td>
+                        <td class="text-center">February 31, 2021: 6PM</td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">Layton 3rd ward</td>
+                        <td class="text-center">17</td>
+                        <td class="text-center">February 31, 2021: 6PM</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-</body>
-    
+</div>
