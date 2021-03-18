@@ -29,25 +29,25 @@ namespace _413_Project_one.Models
                     {
                         GroupName = "Layton 5th Ward",
                         GroupSize = 50,
-                        GroupContactEmailAddress = "fake1@gmail.com",
-                        GroupContactPhoneNumber = "123-123-1234",
-                        GroupAppointmentID = 1
+                        GroupContactEmailAddress = "test@gmail.com",
+                        GroupContactPhoneNumber = "123-456-9999",
+                        GroupAppointmentTime = "Thursday, 18 March, 8 AM"
                     },
                     new Group
                     {
                         GroupName = "Layton 3rd Ward",
                         GroupSize = 45,
-                        GroupContactEmailAddress = "fake2@gmail.com",
-                        GroupContactPhoneNumber = "123-123-1235",
-                        GroupAppointmentID = 2
+                        GroupContactEmailAddress = "test@gmail.com",
+                        GroupContactPhoneNumber = "123-456-9999",
+                        GroupAppointmentTime = "Thursday, 18 March, 9 AM"
                     },
                     new Group
                     {
                         GroupName = "Ogden YSA 2nd Ward",
                         GroupSize = 22,
-                        GroupContactEmailAddress = "fake4@gmail.com",
-                        GroupContactPhoneNumber = "123-123-1235",
-                        GroupAppointmentID = 3
+                        GroupContactEmailAddress = "test@gmail.com",
+                        GroupContactPhoneNumber = "123-456-9999",
+                        GroupAppointmentTime = "Thursday, 18 March, 10 AM"
                     });
 
                     context.SaveChanges();

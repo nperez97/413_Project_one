@@ -10,7 +10,7 @@
     <link rel="icon" href="~/img/favicon.ico">
     <title>@ViewBag.Title</title>
 </head>
-<body>
+<body style="min-height: 100vh; position: relative;">
     @RenderSection("Carosel", required: false)
     <header style="flex-direction: column;">
         <div class="menu-bar">
@@ -23,7 +23,7 @@
             <nav>
                 <ul>
                     <li><a class="li-hover" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a class="li-hover" asp-controller="Home" asp-action="NewAppointment">Sign Up</a></li>
+                    <li><a class="li-hover" asp-controller="Home" asp-action="SignUp">Sign Up</a></li>
                     <li><a class="li-hover" asp-controller="Home" asp-action="ViewAppointments">View Appointments</a></li>
                     <li><a class="li-hover" target="_blank" href="https://churchofjesuschristtemples.org/layton-utah-temple/">Temple Info</a></li>
                     <li><a class="li-hover" target="_blank" href="https://churchofjesuschrist.org">Learn More</a></li>

@@ -31,7 +31,7 @@ namespace _413_Project_one.Migrations
                     GroupSize = table.Column<int>(type: "INTEGER", nullable: false),
                     GroupContactEmailAddress = table.Column<string>(type: "TEXT", nullable: false),
                     GroupContactPhoneNumber = table.Column<string>(type: "TEXT", nullable: true),
-                    GroupAppointmentID = table.Column<int>(type: "INTEGER", nullable: false)
+                    GroupAppointmentTime = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {

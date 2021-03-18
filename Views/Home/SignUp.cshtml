@@ -3,14 +3,180 @@
     ViewData["Title"] = "View Appointments";
 }
 
+<h1 class="text-center">Select an appointment</h1>
+<br>
+
+<div class="text-center">
 @foreach (var x in Model)
 {
-    @if (x.Booked == true)
+    @if (x.Booked)
     {
-        <a class="text-muted">@x.AppointmentStartTime</a><br />
+        <form method="post">
+            <button disabled type="submit" class="btn">@Convert.ToDateTime(x.AppointmentStartTime).ToString("dddd, dd MMMM, h tt")</button>
+            @* <input type="hidden" id="time" value="@Convert.ToDateTime(x.AppointmentStartTime).ToString("dddd, dd MMMM, h tt")"> *@
+            <p style="dispay: none" id="time">@Convert.ToDateTime(x.AppointmentStartTime).ToString("dddd, dd MMMM, h tt")</p>
+        </form>
     }
     else
     {
-        <a>@x.AppointmentStartTime</a><br />
+        <form method="post">
+            <button type="submit" class="btn btn-outline-secondary">@Convert.ToDateTime(x.AppointmentStartTime).ToString("dddd, dd MMMM, h tt")</button>
+            @* <input type="hidden" id="time" value="@Convert.ToDateTime(x.AppointmentStartTime).ToString("dddd, dd MMMM, h tt")"> *@
+            <p style="display: none" id="time">@Convert.ToDateTime(x.AppointmentStartTime).ToString("dddd, dd MMMM, h tt")</p>
+        </form>
     }
-} 
+}
+</div>
+<br><br>
+
+            
+
+
+@* <div class="text-center">
+    <table>
+        <thead>
+            <tr>
+                <th>Monday</th>
+                <th>Tuesday</th>
+                <th>Wednesday</th>
+                <th>Thursday</th>
+                <th>Friday</th>
+                <th>Saturday</th>
+                <th>Sunday</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var x in Model)
+            {
+                <tr>
+                @if (x.Booked)
+                {
+                    @if (x.AppointmentStartTime.DayOfWeek == DayOfWeek.Monday)
+                    {
+                        <td>
+                            <form method="post">
+                                <button disabled type="submit" class="btn">@Convert.ToDateTime(x.AppointmentStartTime).ToString("MM dd hh")</button>
+                            </form>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    }
+                    else if (x.AppointmentStartTime.DayOfWeek == DayOfWeek.Tuesday)
+                    {
+                        <tr>
+                            <td>
+                                <form method="post">
+                                    <button disabled type="submit" class="btn">@Convert.ToDateTime(x.AppointmentStartTime).ToString("MM dd hh")</button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                    else if (x.AppointmentStartTime.DayOfWeek == DayOfWeek.Wednesday)
+                    {
+                        <td>
+                            <form method="post">
+                                <button disabled type="submit" class="btn">@Convert.ToDateTime(x.AppointmentStartTime).ToString("MM dd hh")</button>
+                            </form>
+                        </td>
+                    }
+                    else if (x.AppointmentStartTime.DayOfWeek == DayOfWeek.Thursday)
+                    {
+                        <td>
+                            <form method="post">
+                                <button disabled type="submit" class="btn">@Convert.ToDateTime(x.AppointmentStartTime).ToString("MM dd hh")</button>
+                            </form>
+                        </td>
+                    }
+                    else if (x.AppointmentStartTime.DayOfWeek == DayOfWeek.Friday)
+                    {
+                        <td>    
+                            <form method="post">
+                                <button disabled type="submit" class="btn">@Convert.ToDateTime(x.AppointmentStartTime).ToString("MM dd hh")</button>
+                            </form>
+                        </td>
+                    }
+                    else if (x.AppointmentStartTime.DayOfWeek == DayOfWeek.Saturday)
+                    {
+                        <td>    
+                            <form method="post">
+                                <button disabled type="submit" class="btn">@Convert.ToDateTime(x.AppointmentStartTime).ToString("MM dd hh")</button>
+                            </form>
+                        </td>
+                    }
+                    else if (x.AppointmentStartTime.DayOfWeek == DayOfWeek.Sunday)
+                    {
+                        <td>
+                            <form method="post">
+                                <button disabled type="submit" class="btn">@Convert.ToDateTime(x.AppointmentStartTime).ToString("MM dd hh")</button>
+                            </form>
+                        </td>
+                    }
+                }
+                else
+                {
+                    @if (x.AppointmentStartTime.DayOfWeek == DayOfWeek.Monday)
+                    {
+                        <td>
+                            <form method="post">
+                                <button type="submit" class="btn">@Convert.ToDateTime(x.AppointmentStartTime).ToString("MM dd hh")</button>
+                            </form>
+                        </td>
+                    }
+                    else if (x.AppointmentStartTime.DayOfWeek == DayOfWeek.Tuesday)
+                    {
+                        <td>
+                            <form method="post">
+                                <button type="submit" class="btn">@Convert.ToDateTime(x.AppointmentStartTime).ToString("MM dd hh")</button>
+                            </form>
+                        </td>
+                    }
+                    else if (x.AppointmentStartTime.DayOfWeek == DayOfWeek.Wednesday)
+                    {
+                        <td>
+                            <form method="post">
+                                <button type="submit" class="btn">@Convert.ToDateTime(x.AppointmentStartTime).ToString("MM dd hh")</button>
+                            </form>
+                        </td>
+                    }
+                    else if (x.AppointmentStartTime.DayOfWeek == DayOfWeek.Thursday)
+                    {
+                        <td>
+                            <form method="post">
+                                <button type="submit" class="btn">@Convert.ToDateTime(x.AppointmentStartTime).ToString("MM dd hh")</button>
+                            </form>
+                        </td>
+                    }
+                    else if (x.AppointmentStartTime.DayOfWeek == DayOfWeek.Friday)
+                    {
+                        <td>
+                            <form method="post">
+                                <button type="submit" class="btn">@Convert.ToDateTime(x.AppointmentStartTime).ToString("MM dd hh")</button>
+                            </form>
+                        </td>
+                    }
+                    else if (x.AppointmentStartTime.DayOfWeek == DayOfWeek.Saturday)
+                    {
+                        <td>
+                            <form method="post">
+                                <button type="submit" class="btn">@Convert.ToDateTime(x.AppointmentStartTime).ToString("MM dd hh")</button>
+                            </form>
+                        </td>
+                    }
+                    else if (x.AppointmentStartTime.DayOfWeek == DayOfWeek.Sunday)
+                    {
+                        <td>
+                            <form method="post">
+                                <button type="submit" class="btn">@Convert.ToDateTime(x.AppointmentStartTime).ToString("MM dd hh")</button>
+                            </form>
+                        </td>
+                    }
+                }
+                </tr>
+            }
+            
+        </tbody>
+    </table>
+</div> *@

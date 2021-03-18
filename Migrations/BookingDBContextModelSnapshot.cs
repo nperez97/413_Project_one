@@ -39,8 +39,8 @@ namespace _413_Project_one.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("GroupAppointmentID")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("GroupAppointmentTime")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("GroupContactEmailAddress")
                         .IsRequired()

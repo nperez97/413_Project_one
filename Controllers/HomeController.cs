@@ -60,7 +60,7 @@ namespace _413_Project_one.Controllers
 
         public IActionResult SignUp()
         {
-            return View(context.Appointments);
+            return View(context.Appointments.OrderBy(e => e.AppointmentStartTime));
         }
         public IActionResult Privacy()
         {

@@ -9,7 +9,7 @@ using _413_Project_one.Models;
 namespace _413_Project_one.Migrations
 {
     [DbContext(typeof(BookingDBContext))]
-    [Migration("20210318062026_initial")]
+    [Migration("20210318225108_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -41,8 +41,8 @@ namespace _413_Project_one.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("GroupAppointmentID")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("GroupAppointmentTime")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("GroupContactEmailAddress")
                         .IsRequired()
