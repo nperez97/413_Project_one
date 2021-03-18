@@ -1,5 +1,16 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model IEnumerable<_413_Project_one.Models.AppointmentModel>
 @{
+    ViewData["Title"] = "View Appointments";
 }
+
+@foreach (var x in Model)
+{
+    @if (x.Booked == true)
+    {
+        <a class="text-muted">@x.AppointmentStartTime</a><br />
+    }
+    else
+    {
+        <a>@x.AppointmentStartTime</a><br />
+    }
+} 

@@ -57,6 +57,11 @@ namespace _413_Project_one.Controllers
         {
             return View(context.Groups); 
         }
+
+        public IActionResult SignUp()
+        {
+            return View(context.Appointments);
+        }
         public IActionResult Privacy()
         {
             return View();
