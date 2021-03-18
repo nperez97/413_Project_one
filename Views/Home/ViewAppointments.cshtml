@@ -10,6 +10,7 @@
             <table class="table table-hover" style="width: 50vw; margin-bottom: 0;">
                 <thead>
                     <tr>
+                        <th class="text-center">Group ID</th>
                         <th class="text-center">Group Name</th>
                         <th class="text-center">Group Size</th>
                         <th class="text-center">Appointment Date</th>
@@ -27,6 +28,7 @@
                         @foreach (var x in Model)
                         {
                             <tr>
+                                <td class="text-center">@x.GroupID</td>
                                 <td class="text-center">@x.GroupName</td>
                                 <td class="text-center">@x.GroupSize</td>
                                 <td class="text-center">@x.GroupAppointmentID</td>

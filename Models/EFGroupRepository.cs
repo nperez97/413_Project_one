@@ -15,5 +15,6 @@ namespace _413_Project_one.Models
         }
 
         public IQueryable<Group> Groups => (_context.Groups);
+        //public IQueryable<AppointmentModel> Appointments => (_context.Appointments);
     }
 }

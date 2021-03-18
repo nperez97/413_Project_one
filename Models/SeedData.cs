@@ -49,6 +49,30 @@ namespace _413_Project_one.Models
                         GroupContactPhoneNumber = "123-123-1235",
                         GroupAppointmentID = 3
                     });
+
+                    context.SaveChanges();
+            }
+
+
+            if (!context.Appointments.Any())
+            {
+                context.Appointments.AddRange(
+                    // 3/18
+                    new AppointmentModel
+                    {
+                        AppointmentStartTime = new DateTime(2021, 3, 18, 8, 0, 0),
+                        Booked = true,
+                    },
+                    new AppointmentModel
+                    {
+                        AppointmentStartTime = new DateTime(2021, 3, 18, 9, 0, 0),
+                        Booked = true,
+                    },
+                    new AppointmentModel
+                    {
+                        AppointmentStartTime = new DateTime(2021, 3, 18, 10, 0, 0),
+                        Booked = true,
+                    });
                 context.SaveChanges();
             }
         }

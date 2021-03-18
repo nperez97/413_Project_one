@@ -10,36 +10,52 @@ namespace _413_Project_one.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        /*private readonly ILogger<HomeController> _logger;
         //repository
         private IGroupRepository _repository;
         public HomeController(ILogger<HomeController> logger, IGroupRepository repository)
         {
             _logger = logger;
             _repository = repository;
+        }*/
+
+        private BookingDBContext context { get; set; }
+
+        //Constructor
+        public HomeController(BookingDBContext con)
+        {
+            context = con;
         }
+
         public IActionResult Index()
         {
             return View();
         }
+
         [HttpGet]
         public IActionResult NewAppointment()
         {
             return View();
         }
+
         [HttpPost]
         public IActionResult NewAppointment(Group newGroup)
         {
-            Repository.AddResponse(newGroup);
-            /*if (ModelState.IsValid)
+            
+            if (ModelState.IsValid)
             {
+                /*studentRepository.InsertStudent(student);
+                studentRepository.Save();*/
+                //Repository.AddResponse(newGroup);
+                context.Groups.Add(newGroup);
+                context.SaveChanges();
                 Response.Redirect("Index");
-            }*/
-            return View("ViewAppointments", newGroup);
+            }
+            return View();
         }
         public IActionResult ViewAppointments()
         {
-            return View(Repository.Responses); 
+            return View(context.Groups); 
         }
         public IActionResult Privacy()
         {

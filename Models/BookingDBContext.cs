@@ -13,6 +13,7 @@ namespace _413_Project_one.Models
 
         }
         public DbSet<Group> Groups { get; set; }
+        public DbSet<AppointmentModel> Appointments { get; set; }
 
     }
 }
