@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+
 namespace _413_Project_one.Controllers
 {
     public class HomeController : Controller
@@ -39,29 +41,56 @@ namespace _413_Project_one.Controllers
         }
 
         [HttpPost]
-        public IActionResult NewAppointment(Group newGroup)
+        public IActionResult NewAppointment(Group newGroup, IFormCollection form)
         {
-            
             if (ModelState.IsValid)
             {
                 /*studentRepository.InsertStudent(student);
                 studentRepository.Save();*/
                 //Repository.AddResponse(newGroup);
+
                 context.Groups.Add(newGroup);
                 context.SaveChanges();
+                //change id to int since it would normally return a string
+                int Appt_id = Int32.Parse(form["id"]);
+                var appt = context.Appointments.SingleOrDefault(a => a.AppointmentID == Appt_id);
+                if (appt != null)
+                {
+                    appt.Booked = true;
+                    context.SaveChanges();
+                }
+                
+                //(context.Appointments.Where(a => a.AppointmentID == Appt_id);
                 Response.Redirect("Index");
             }
+            //code to keep appt time populated if they incorrectly put in phone.
+            ViewData["id"] = form["id"];
+            ViewData["appTime"] = form["GroupAppointmentTime"];
             return View();
         }
+
+        
         public IActionResult ViewAppointments()
         {
             return View(context.Groups); 
         }
 
+        [HttpGet]
         public IActionResult SignUp()
         {
             return View(context.Appointments.OrderBy(e => e.AppointmentStartTime));
         }
+
+        [HttpPost]
+        public IActionResult SignUp(IFormCollection form)
+        {
+            ViewData["id"] = form["id"];
+            ViewData["appTime"] = form["time"];
+
+            return View("NewAppointment");
+        }
+        
+
         public IActionResult Privacy()
         {
             return View();

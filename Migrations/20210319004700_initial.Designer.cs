@@ -9,7 +9,7 @@ using _413_Project_one.Models;
 namespace _413_Project_one.Migrations
 {
     [DbContext(typeof(BookingDBContext))]
-    [Migration("20210318225108_initial")]
+    [Migration("20210319004700_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

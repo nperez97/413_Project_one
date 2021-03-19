@@ -4,14 +4,18 @@
 
 @model _413_Project_one.Models.Group
 
-<h1>@ViewData["Title"]</h1>
-
-
-<body>
+<h1 class="text-center">@ViewData["Title"]</h1>
 
     <!--Form for entering in a new appointment-->
-    <div class="container">
+    <div class="container text-center">
         <form class="mt-5 ml-5 pt-5 pl-5" asp-action="NewAppointment" method="post" id="newAppointmentForm">
+            <div class="form-group">
+                <label asp-for="GroupAppointmentTime">Group Appointment Time</label>
+                <input class="form-control" value="@ViewBag.appTime" disabled>
+                <input style="display: none" class="form-control" name="GroupAppointmentTime" asp-for="GroupAppointmentTime" value="@ViewBag.appTime">
+                <input type="hidden" id="id" name="id" value="@ViewBag.id">
+                <span asp-validation-for="GroupAppointmentTime" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <label asp-for="GroupName">Name of Group</label>
                 <input class="form-control" asp-for="GroupName" />
@@ -30,11 +34,11 @@
             <div class="form-group">
                 <label asp-for="GroupContactPhoneNumber">Phone Number</label>
                 <input class="form-control" asp-for="GroupContactPhoneNumber" />
+                <small class="text-muted">Optional</small>
                 <span asp-validation-for="GroupContactPhoneNumber" class="text-danger"></span>
             </div>
             <input asp-action="NewAppointment" type="submit" value="Submit" id="btnsubmit" onclick="resetForm()">
             <input asp-action="ViewAppointments" type="submit" value="Show All Appointments" />
         </form>
     </div>
-    
-</body>
+<br><br><br>

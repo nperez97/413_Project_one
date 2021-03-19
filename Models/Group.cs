@@ -22,8 +22,11 @@ namespace _413_Project_one.Models
         [EmailAddress]
         public string GroupContactEmailAddress { get; set; }
 
+        //allows for phone to be optional
+#nullable enable
         [RegularExpression(@"^\(\d{3}\)\s\d{3}-\d{4}", ErrorMessage = "Please enter phone in this format: (XXX) XXX-XXXX")]
-        public string GroupContactPhoneNumber { get; set; }
+        public string? GroupContactPhoneNumber { get; set; }
+#nullable disable
 
         public string GroupAppointmentTime { get; set; }
         

@@ -13,16 +13,16 @@
     {
         <form method="post">
             <button disabled type="submit" class="btn">@Convert.ToDateTime(x.AppointmentStartTime).ToString("dddd, dd MMMM, h tt")</button>
-            @* <input type="hidden" id="time" value="@Convert.ToDateTime(x.AppointmentStartTime).ToString("dddd, dd MMMM, h tt")"> *@
-            <p style="dispay: none" id="time">@Convert.ToDateTime(x.AppointmentStartTime).ToString("dddd, dd MMMM, h tt")</p>
+            <input type="hidden" id="time" name="time" value="@Convert.ToDateTime(x.AppointmentStartTime).ToString("dddd, dd MMMM, h tt")">
+            <input type="hidden" id="id" name="id" value="@x.AppointmentID">
         </form>
     }
     else
     {
         <form method="post">
             <button type="submit" class="btn btn-outline-secondary">@Convert.ToDateTime(x.AppointmentStartTime).ToString("dddd, dd MMMM, h tt")</button>
-            @* <input type="hidden" id="time" value="@Convert.ToDateTime(x.AppointmentStartTime).ToString("dddd, dd MMMM, h tt")"> *@
-            <p style="display: none" id="time">@Convert.ToDateTime(x.AppointmentStartTime).ToString("dddd, dd MMMM, h tt")</p>
+            <input type="hidden" id="time" name="time" value="@Convert.ToDateTime(x.AppointmentStartTime).ToString("dddd, dd MMMM, h tt")">
+            <input type="hidden" id="id" name="id" value="@x.AppointmentID">
         </form>
     }
 }
